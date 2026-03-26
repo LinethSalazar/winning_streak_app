@@ -43,3 +43,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+#firebase
+# Add these lines to your .gitignore file
+google-services.json
+GoogleService-Info.plist
+lib/firebase_options.dart

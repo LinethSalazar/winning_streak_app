@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:winning_streak_app/auth/cubit/authorization_cubit.dart';
+import 'package:winning_streak_app/multiple_choice_question/fetcher/mock_question_fetch_demo.dart';
 import 'package:winning_streak_app/multiple_choice_question/multiple_choice_question.dart';
 
 import '../streak.dart';
@@ -17,7 +18,7 @@ class StreakPage extends StatelessWidget {
           create: (_) => StreakCubit(),
         ),
         BlocProvider<QuestionCubit>(
-          create: (_) => QuestionCubit(RandomQuestionFetch()),
+          create: (_) => QuestionCubit(MockQuestionFetch()),
         ),
         BlocProvider<AuthorizationCubit>(
           create: (_) => AuthorizationCubit(),

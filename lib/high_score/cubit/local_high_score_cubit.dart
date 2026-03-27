@@ -9,10 +9,12 @@ part 'high_score_state.dart';
 
 class LocalHighScoreCubit extends Cubit<HighScoreState> {
 
+  late String name;
   LocalHighScoreDatabase db;
 
   LocalHighScoreCubit(this.db) : super(HighScoreState()) {
     _fetchHighScores();
+    name = 'Set up name in settings';
   }
 
   Future<void> _fetchHighScores() async {
@@ -35,15 +37,20 @@ class LocalHighScoreCubit extends Cubit<HighScoreState> {
     return min.compareTo(candidate) > 0;
   }
 
+  void setName(String newName) {
+    name = newName;
+  }
+
+
   //update the leaderboard
-  void updateScoreboard(int streakLength,DateTime when, String initials ) {
+  void updateScoreboard(int streakLength,DateTime when ) {
 
     if(!isHighScore(streakLength, when)) {
       return;
     }
 
     List<HighScoreRecord> leaders = []..addAll(state.leaderboard);
-    leaders.add(HighScoreRecord(initials, streakLength, when));
+    leaders.add(HighScoreRecord(name, streakLength, when));
 
     leaders.sort((a,b)=>b.compareTo(a));
 
@@ -55,5 +62,9 @@ class LocalHighScoreCubit extends Cubit<HighScoreState> {
 
     //update the leaders
     db.put(leaders);
+  }
+
+  void clear_winning_streak_cache() {
+    db.box.clear();
   }
 }

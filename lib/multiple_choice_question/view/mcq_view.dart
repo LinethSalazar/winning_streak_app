@@ -96,9 +96,8 @@ class MCQView extends StatelessWidget {
               print("new high score!");
 
               //save the streak as a high score
-              var r = Random();
-              String rando = String.fromCharCode(r.nextInt(26)+65) + String.fromCharCode(r.nextInt(26)+65) + String.fromCharCode(r.nextInt(26)+65);
-              context.read<LocalHighScoreCubit>().updateScoreboard(streak, DateTime.now(), rando);
+
+              context.read<LocalHighScoreCubit>().updateScoreboard(streak, DateTime.now());
             }
             context.read<StreakCubit>().reset();
           }

@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:winning_streak/high_score/cubit/hs_toggle_cubit.dart';
-import 'package:winning_streak/high_score/cubit/local_high_score_cubit.dart';
+import 'package:winning_streak_app/high_score/cubit/hs_toggle_cubit.dart';
+import 'package:winning_streak_app/high_score/cubit/local_high_score_cubit.dart';
 
 import '../cubit/global_high_score_cubit.dart';
 import '../model/high_score_record.dart';
